@@ -57,6 +57,7 @@
     <Compile Include="Tools\Extenstions\StringExts.cs" />
     <Compile Include="Tools\Extenstions\NullableExts.cs" />
     <Compile Include="Tools\Extenstions\TypeExts.cs" />
+    <Compile Include="gtk-gui\YABDL.Views.MainWindow.cs" />
     <Compile Include="Views\MainWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
