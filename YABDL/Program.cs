@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using YABDL.Views;
 
 namespace YABDL
 {
@@ -8,8 +9,8 @@ namespace YABDL
 		public static void Main (string[] args)
 		{
 			Application.Init();
-			//var mainWindow = new MainWindow ();
-            //mainWindow.ShowAll();
+			var mainWindow = new MainWindow ();
+            mainWindow.Show();
 			Application.Run();
 		}
 	}

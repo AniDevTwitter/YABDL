@@ -8,12 +8,9 @@ namespace YABDL.Tools.XML.Generics
 {
         public abstract class XMLEntity : IEquatable<XMLEntity>
         {
-            [XmlIgnore]
-            private object owner;
-
             protected XMLEntity()
             {
-                this.owner = null;
+                this.Owner = null;
             }
 
             public abstract Guid Id
@@ -25,14 +22,8 @@ namespace YABDL.Tools.XML.Generics
             [XmlIgnore]
             public object Owner
             {
-                get
-                {
-                    return this.owner;
-                }
-                set
-                {
-                    this.owner = value;
-                }
+                get;
+                set;
             }
 
             public static bool operator !=(XMLEntity left, XMLEntity right)

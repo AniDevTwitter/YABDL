@@ -42,9 +42,6 @@
       <HintPath>packages\morelinq.1.1.0\lib\net35\MoreLinq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
-    <Reference Include="libstetic">
-      <HintPath>..\..\..\..\..\..\usr\lib\monodevelop\AddIns\MonoDevelop.GtkCore\libstetic.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -60,6 +57,10 @@
     <Compile Include="Tools\Extenstions\StringExts.cs" />
     <Compile Include="Tools\Extenstions\NullableExts.cs" />
     <Compile Include="Tools\Extenstions\TypeExts.cs" />
+    <Compile Include="Models\Interfaces\IGlobalConf.cs" />
+    <Compile Include="Models\XML\XMLGlobalConf.cs" />
+    <Compile Include="Models\GlobalConf.cs" />
+    <Compile Include="Views\MainWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -76,6 +77,7 @@
     <Folder Include="Tools\XML\Generics\" />
     <Folder Include="Tools\XML\Attributes\" />
     <Folder Include="Tools\Extenstions\" />
+    <Folder Include="Models\Interfaces\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

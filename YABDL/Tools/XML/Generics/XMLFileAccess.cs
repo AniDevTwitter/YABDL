@@ -9,6 +9,7 @@ namespace YABDL.Tools.XML.Generics
 {
     public class XMLFileAccess<T> where T : class, new()
     {
+        // Analysis disable once StaticFieldInGenericType
         private static readonly XmlWriterSettings settings = new XmlWriterSettings()
             {
 #if DEBUG
@@ -32,10 +33,14 @@ namespace YABDL.Tools.XML.Generics
             this.xmlFilePath = xmlFilePath;
         }
 
-        public void Write(T item)
+        public void Write(T item, bool createFolderIfNecessary = true)
         {
             try
             {
+                if(createFolderIfNecessary)
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(this.xmlFilePath));
+                }
                 using (var writer = XmlWriter.Create(this.xmlFilePath, XMLFileAccess<T>.settings))
                 {
                     new XmlSerializer(typeof(T)).Serialize(writer, item);
