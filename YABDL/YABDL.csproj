@@ -42,6 +42,10 @@
       <HintPath>packages\morelinq.1.1.0\lib\net35\MoreLinq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="Mono.Http" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -61,6 +65,11 @@
     <Compile Include="Models\XML\XMLGlobalConf.cs" />
     <Compile Include="Models\GlobalConf.cs" />
     <Compile Include="Views\MainWindow.cs" />
+    <Compile Include="Models\Interfaces\IProvider.cs" />
+    <Compile Include="Models\XML\XMLProvider.cs" />
+    <Compile Include="Models\APIs\DanbooruAccess.cs" />
+    <Compile Include="Models\APIs\DanbooruPosts.cs" />
+    <Compile Include="Tools\Extenstions\UriBuilderExts.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -78,6 +87,7 @@
     <Folder Include="Tools\XML\Attributes\" />
     <Folder Include="Tools\Extenstions\" />
     <Folder Include="Models\Interfaces\" />
+    <Folder Include="Models\APIs\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

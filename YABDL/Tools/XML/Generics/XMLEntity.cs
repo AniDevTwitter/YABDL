@@ -20,6 +20,7 @@ namespace YABDL.Tools.XML.Generics
             }
 
             [XmlIgnore]
+            //used to identify which context own this entity, type is object because giving a real type/interface is meaningless here
             public object Owner
             {
                 get;
@@ -72,7 +73,7 @@ namespace YABDL.Tools.XML.Generics
                 return this.Id.Equals(other.Id);
             }
 
-            //Override to specify behaviour
+            //Override this to specify behaviour
             public virtual ModifyEntry GetDiff()
             {
                 var ret = new ModifyEntry();
@@ -102,7 +103,6 @@ namespace YABDL.Tools.XML.Generics
                 field.SetValue(this, complex == null ? fieldValue.ConvertTo(field.FieldType) : complex.ConvertFromString(fieldValue));
             }
 
-            //used to identify which context own this entity, object type because giving a real type is meaninless here
         }
     }
 

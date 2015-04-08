@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace YABDL.Models.Interfaces
 {
@@ -8,6 +9,12 @@ namespace YABDL.Models.Interfaces
         { 
             get; 
             set; 
+        }
+
+        List<IProvider> Providers
+        {
+            get;
+            set;
         }
 
         void Sync();

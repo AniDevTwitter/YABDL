@@ -3,6 +3,7 @@ using YABDL.Models.Interfaces;
 using System.IO;
 using System.Xml.Serialization;
 using YABDL.Tools.XML.Generics;
+using System.Collections.Generic;
 
 namespace YABDL.Models.XML
 {
@@ -14,7 +15,7 @@ namespace YABDL.Models.XML
 
         public XMLGlobalConf()
         {
-
+            this.Providers = new List<IProvider>();
         }
 
         #region IGlobalConf implementation
@@ -28,6 +29,13 @@ namespace YABDL.Models.XML
 
         [XmlElement("AppTitle")]
         public string AppTitle
+        {
+            get;
+            set;
+        }
+
+        [XmlArray("Providers"), XmlArrayItem(typeof(XMLProvider), ElementName = "Provider")]
+        public List<IProvider> Providers
         {
             get;
             set;

@@ -33,14 +33,14 @@ namespace YABDL.Tools.XML.Attributes
      *      public static string ToStringMethodName(object obj)
      *      {
      *          //dostuff
-    *      }
-*
-*      public static object FromStringMethodeName(string str)
-*      {
-    *          //dostuff
-    *      }
-* }
-*
-* */
+     *      }
+     *
+     *      public static object FromStringMethodeName(string str)
+     *      {
+     *          //dostuff
+     *      }
+     * }
+     *
+     * */
 }
 
