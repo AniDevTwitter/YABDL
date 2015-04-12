@@ -2,7 +2,7 @@
 
 namespace YABDL.Models.Interfaces
 {
-    public interface IAPIGlobalAccess
+    public interface IAPIAccess
     {
         IAPIPostsAccess Posts { get; }
     }

@@ -2,36 +2,41 @@
 using YABDL.Models.Interfaces;
 using System.IO;
 using YABDL.Models.XML;
+using YABDL.Models.APIs;
 
 namespace YABDL.Models
 {
     public static class GlobalConf
     {
+        private const SerializedAs UsedConfFileType = SerializedAs.XML;
+        private static IGlobalConf currentConf = null;
+        private static IAPIAccess currentApiAccess = null;
+
         public static readonly string AppConfigFolderPath = Path.Combine(Path.GetFullPath(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)), @"yabdl/");
-
-        private enum GlobalConfFileType
-        {
-            XML,
-            // add more if you want
-        }
-
-        private const GlobalConfFileType UsedConfFileType = GlobalConfFileType.XML;
-        private static IGlobalConf current = null;
 
         public static IGlobalConf GetGlobalConf()
         {
-            if (GlobalConf.current == null)
+            if (GlobalConf.currentConf == null)
             {
                 switch (GlobalConf.UsedConfFileType)
                 {
-                    case GlobalConfFileType.XML:
-                        GlobalConf.current = XMLGlobalConf.GetConf();
+                    case SerializedAs.XML:
+                        GlobalConf.currentConf = XMLGlobalConf.GetConf();
                         break;
                     //default:
                       //  throw new ArgumentException(GlobalConf.UsedConfFileType + " isn't supported yet.");
                 }
             }
-            return GlobalConf.current;
+            return GlobalConf.currentConf;
+        }
+
+        public static IAPIAccess GetAPIAccess()
+        {
+            if (GlobalConf.currentApiAccess == null)
+            {
+                GlobalConf.currentApiAccess = new DanbooruAccess();
+            }
+            return GlobalConf.currentApiAccess;
         }
     }
 }

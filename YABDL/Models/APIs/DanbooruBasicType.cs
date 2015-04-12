@@ -8,7 +8,9 @@ namespace YABDL.Models.APIs
     [Serializable]
     public class DanbooruBasicType<T> : IXmlSerializable
     {
-        private T val;
+        private const string NilAttributeName = "nil";
+        private const string TypeAttributeName = "type";
+
         public DanbooruBasicType()
         {
 
@@ -17,14 +19,8 @@ namespace YABDL.Models.APIs
         [XmlIgnore]
         public T Value
         {
-            get
-            {
-                return this.val;
-            }
-            set
-            {
-                this.val = value;
-            }
+            get;
+            set;
         }
 
         #region IXmlSerializable implementation
@@ -43,8 +39,8 @@ namespace YABDL.Models.APIs
         public void ReadXml(XmlReader reader)
         {
             var typeOfT = typeof(T);
-            var nilValue = reader.GetAttribute("nil"); // TODO : Move this into a confile
-            var typeValue = reader.GetAttribute("type"); // TODO : Move this into a confile
+            var nilValue = reader.GetAttribute(NilAttributeName); // TODO : Move this into a confile
+            var typeValue = reader.GetAttribute(TypeAttributeName); // TODO : Move this into a confile
             if (!string.IsNullOrEmpty(nilValue))
             {
                 if (nilValue == "true")
@@ -54,40 +50,12 @@ namespace YABDL.Models.APIs
             }
             else if (!string.IsNullOrEmpty(typeValue))
             {
-                switch (typeValue)
+                var danbooruType = this.GeTypeFromDanbooruString(typeValue);
+                if (typeof(T) != danbooruType)
                 {
-                    case "string":  // TODO : Move this into a confile
-                        if (typeOfT != typeof(string))
-                        {
-                            throw new InvalidCastException("Generic vs serialized type mismatch, expected : " + typeof(string) + " got : " + typeValue);
-                        }
-                        this.SetValue(reader.ReadContentAsString()); 
-                        break;
-
-                    case "datetime": // TODO : Move this into a confile
-                        if (typeof(T) != typeof(DateTime))
-                        {
-                            throw new InvalidCastException("Generic vs serialized type mismatch, expected : " + typeof(DateTime) + " got : " + typeValue);
-                        }
-                        this.SetValue(reader.ReadContentAsDateTime());
-                        break;
-                    case "integer": // TODO : Move this into a confile
-                        if (typeOfT != typeof(int))
-                        {
-                            throw new InvalidCastException("Generic vs serialized type mismatch, expected : " + typeof(int) + " got : " + typeValue);
-                        }
-                        this.SetValue(reader.ReadContentAsInt());
-                        break;
-                    case "boolean": // TODO : Move this into a confiles
-                        if (typeOfT != typeof(bool))
-                        {
-                            throw new InvalidCastException("Generic vs serialized type mismatch, expected : " + typeof(bool) + " got : " + typeValue);
-                        }
-                        this.SetValue(reader.ReadContentAsInt());
-                        break;
-                    default:
-                        throw new NotSupportedException("Following type isn't supported : " + typeValue + " expecting : " + typeof(T));
+                    throw new InvalidCastException("Generic vs serialized type mismatch, expected : " + typeof(T) + " got : " + danbooruType);
                 }
+                this.SetValue(reader.ReadContentAs(danbooruType, null));
             }
             else // If nothing found fallback to string serialization and pray
             {
@@ -100,12 +68,66 @@ namespace YABDL.Models.APIs
 
         }
 
+        private Type GeTypeFromDanbooruString(string str)
+        {
+            switch (str)
+            {
+                case "string":  // TODO : Move this into a confile
+                    return typeof(string);
+
+                case "datetime": // TODO : Move this into a confile
+                    return typeof(DateTime);
+
+                case "integer": // TODO : Move this into a confile
+                    return typeof(int);
+                
+                case "boolean": // TODO : Move this into a confiles
+                    return typeof(bool);
+
+                default:
+                    throw new NotSupportedException("Following type isn't supported : " + str);
+            }
+        }
+
+        private string GetDanbooruTypeString(Type type)
+        {
+            if (type == typeof(bool))
+            {
+                return "boolean";
+            }
+            if (type == typeof(DateTime))
+            {
+                return "datetime";
+            }
+            if (type == typeof(int))
+            {
+                return "integer";
+            }
+            if (type == typeof(string))
+            {
+                return null;
+            }
+            throw new NotSupportedException("Following type isn't supported : " + type);
+        }
+
         public void WriteXml(XmlWriter writer)
         {
-            //todo
+            var type = this.GetDanbooruTypeString(typeof(T));
+
+            if (object.ReferenceEquals(this.Value, null))
+            {
+                writer.WriteAttributeString(NilAttributeName, "true");
+            }
+            if (!string.IsNullOrEmpty(type))
+            {
+                writer.WriteAttributeString(TypeAttributeName, type);
+            }
+            else
+            {
+                writer.WriteCData(this.Value.ToString()); // This won't work obviously
+            }
         }
 
         #endregion
     }
 }
-

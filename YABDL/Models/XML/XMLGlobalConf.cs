@@ -63,7 +63,8 @@ namespace YABDL.Models.XML
                                 Name = @"Danbooru",
                                 Url = @"danbooru.donmai.us/",
                                 Limit = @"limit",
-                                
+                                Page = @"page",
+                                Posts = @"/posts",
                                 Tags = @"tags",
                                 RawTags = @"raw",
                             }

@@ -6,18 +6,23 @@ using YABDL.Models;
 
 namespace YABDL.Views
 {
-    public class MainWindow : Window
+    public partial class MainWindow : Window
     {
         private readonly IGlobalConf conf;
-        //private readonly HPaned layout;
+        private readonly IAPIAccess apiAccess;
 
         public MainWindow() : base(WindowType.Toplevel)
         {
             this.conf = GlobalConf.GetGlobalConf();
+            this.apiAccess = GlobalConf.GetAPIAccess();
+            var res = this.apiAccess.Posts.List(this.conf.Providers[0]);
+            res.RunSynchronously(); // error in xml document, this is bad fix this asap
+            var dbg = res.Result;
             this.Title = this.conf.AppTitle;
-            //this.layout = new HPaned();
-        
+            this.BuildVisual();
         }
+
+
 
         protected override bool OnDeleteEvent(Gdk.Event evnt)
         {
