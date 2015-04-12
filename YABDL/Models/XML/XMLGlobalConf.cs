@@ -43,7 +43,10 @@ namespace YABDL.Models.XML
 
         #endregion
 
-        // Get a new one or serialize one with default value if it don't exists
+        /// <summary>
+        /// Get a new one or serialize one with default value if it don't exists
+        /// </summary>
+        /// <returns>The global app conf.</returns>
         public static XMLGlobalConf GetConf()
         {
             if (File.Exists(XMLGlobalConf.GlobalConfPath))
@@ -52,7 +55,19 @@ namespace YABDL.Models.XML
             }
             var retVal = new XMLGlobalConf()
                 {
-                    AppTitle = @"Yet Another Booru DownLoader"
+                    AppTitle = @"Yet Another Booru DownLoader",
+                    Providers = new List<IProvider>
+                        {
+                            new XMLProvider()
+                            {
+                                Name = @"Danbooru",
+                                Url = @"danbooru.donmai.us/",
+                                Limit = @"limit",
+                                
+                                Tags = @"tags",
+                                RawTags = @"raw",
+                            }
+                        }
                 };
             retVal.Sync();
             return retVal;

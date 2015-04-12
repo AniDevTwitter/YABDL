@@ -1,22 +1,28 @@
 ﻿using System;
+using YABDL.Models.Interfaces;
 
 namespace YABDL.Models.APIs
 {
-    public class DanbooruAccess
+    public class DanbooruAccess : IAPIGlobalAccess
     {
-        private DanbooruPosts posts;
+        private readonly DanbooruPostsAccess posts;
+
         public DanbooruAccess()
         {
-            this.posts = new DanbooruPosts();
+            this.posts = new DanbooruPostsAccess();
         }
+            
+        #region IAPIGlobalAccess implementation
 
-        public DanbooruPosts Posts
+        public IAPIPostsAccess Posts
         {
             get
             {
                 return this.posts;
             }
         }
+
+        #endregion
     }
 }
 

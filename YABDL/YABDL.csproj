@@ -68,8 +68,15 @@
     <Compile Include="Models\Interfaces\IProvider.cs" />
     <Compile Include="Models\XML\XMLProvider.cs" />
     <Compile Include="Models\APIs\DanbooruAccess.cs" />
-    <Compile Include="Models\APIs\DanbooruPosts.cs" />
     <Compile Include="Tools\Extenstions\UriBuilderExts.cs" />
+    <Compile Include="Tools\Extenstions\XMLSerializableExts.cs" />
+    <Compile Include="Models\Interfaces\IAPIGlobalAccess.cs" />
+    <Compile Include="Models\Interfaces\IAPIPostsAccess.cs" />
+    <Compile Include="Models\APIs\DanbooruWebResponse.cs" />
+    <Compile Include="Models\APIs\DanbooruPostsAccess.cs" />
+    <Compile Include="Models\APIs\DanbooruPosts.cs" />
+    <Compile Include="Models\APIs\DanbooruPost.cs" />
+    <Compile Include="Models\APIs\DanbooruBasicType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
