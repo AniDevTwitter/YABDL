@@ -3,7 +3,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Diagnostics;
 using System.IO;
-using YABDL.Tools.Extenstions;
+using YABDL.Tools.Extensions;
 
 namespace YABDL.Tools.XML.Generics
 {

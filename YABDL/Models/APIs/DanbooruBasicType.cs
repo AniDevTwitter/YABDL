@@ -13,8 +13,15 @@ namespace YABDL.Models.APIs
 
         public DanbooruBasicType()
         {
-
+            this.Value = default(T);
         }
+
+        public DanbooruBasicType(T value)
+        {
+            this.Value = value;
+        }
+
+
 
         [XmlIgnore]
         public T Value
@@ -32,8 +39,15 @@ namespace YABDL.Models.APIs
 
         private void SetValue(object value)
         {
-            var field = this.GetType().GetField("val");
-            field.SetValue(this, value);
+            var prop = this.GetType().GetProperty("Value");
+            prop.SetValue(this, value);
+        }
+
+        private object GetValue()
+        {
+            var prop = this.GetType().GetProperty("Value");
+            return prop.GetValue(this);
+            
         }
 
         public void ReadXml(XmlReader reader)
@@ -55,7 +69,7 @@ namespace YABDL.Models.APIs
                 {
                     throw new InvalidCastException("Generic vs serialized type mismatch, expected : " + typeof(T) + " got : " + danbooruType);
                 }
-                this.SetValue(reader.ReadContentAs(danbooruType, null));
+                this.SetValue(reader.ReadElementContentAs(danbooruType, null));
             }
             else // If nothing found fallback to string serialization and pray
             {
@@ -68,9 +82,9 @@ namespace YABDL.Models.APIs
 
         }
 
-        private Type GeTypeFromDanbooruString(string str)
+        private Type GeTypeFromDanbooruString(string strType)
         {
-            switch (str)
+            switch (strType)
             {
                 case "string":  // TODO : Move this into a confile
                     return typeof(string);
@@ -85,12 +99,13 @@ namespace YABDL.Models.APIs
                     return typeof(bool);
 
                 default:
-                    throw new NotSupportedException("Following type isn't supported : " + str);
+                    throw new NotSupportedException("Following type isn't supported : " + strType);
             }
         }
 
         private string GetDanbooruTypeString(Type type)
         {
+            type = Nullable.GetUnderlyingType(type) ?? type;
             if (type == typeof(bool))
             {
                 return "boolean";
@@ -110,24 +125,46 @@ namespace YABDL.Models.APIs
             throw new NotSupportedException("Following type isn't supported : " + type);
         }
 
+        private string ValueToXmlString()
+        {
+            var type = Nullable.GetUnderlyingType(typeof(T)) ?? typeof(T);
+            if (type == typeof(bool))
+            {
+                return XmlConvert.ToString((bool)this.GetValue());
+            }
+            if (type == typeof(DateTime))
+            {
+                return XmlConvert.ToString((DateTime)this.GetValue(), XmlDateTimeSerializationMode.Utc); // UTC because... well abritrary
+            }
+            if (type == typeof(int))
+            {
+                return XmlConvert.ToString((int)this.GetValue());
+            }
+            if (type == typeof(string))
+            {
+                return (string)this.GetValue();
+            }
+            throw new NotSupportedException("Following type isn't supported : " + type);
+        }
+
         public void WriteXml(XmlWriter writer)
         {
             var type = this.GetDanbooruTypeString(typeof(T));
-
-            if (object.ReferenceEquals(this.Value, null))
-            {
-                writer.WriteAttributeString(NilAttributeName, "true");
-            }
             if (!string.IsNullOrEmpty(type))
             {
                 writer.WriteAttributeString(TypeAttributeName, type);
             }
+            if (object.ReferenceEquals(this.Value, null))
+            {
+                writer.WriteAttributeString(NilAttributeName, "true");
+            }
             else
             {
-                writer.WriteCData(this.Value.ToString()); // This won't work obviously
+                writer.WriteString(this.ValueToXmlString()); // This won't work obviously
             }
         }
 
         #endregion
+
     }
 }

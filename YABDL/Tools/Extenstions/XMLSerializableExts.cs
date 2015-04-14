@@ -2,21 +2,34 @@
 using System.IO;
 using System.Xml.Serialization;
 
-namespace YABDL.Tools.Extenstions
+namespace YABDL.Tools.Extensions
 {
     public static class XMLSerializableExts
     {
-        public static void ToXML<T>(this T theObject, Stream stream) 
+        public static string ToXml<T>(this T theObject)
         {
-            new XmlSerializer(theObject.GetType()).Serialize(stream, theObject);
+            using (var stream = new MemoryStream())
+            {
+                theObject.ToXml(stream);
+                stream.Position = 0;
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
         }
 
-        public static T FromXML<T>(this Stream XmlStream) 
+        public static void ToXml<T>(this T theObject, Stream stream) 
+        {
+            new XmlSerializer(typeof(T)).Serialize(stream, theObject);
+        }
+
+        public static T FromXml<T>(this Stream XmlStream) 
         {
             return (T) new XmlSerializer(typeof(T)).Deserialize(XmlStream);
         }
 
-        public static T FromXML<T>(this string XmlString) 
+        public static T FromXml<T>(this string XmlString) 
         {
             return (T) new XmlSerializer(typeof(T)).Deserialize(new StringReader(XmlString));
         }

@@ -7,8 +7,9 @@ namespace YABDL.Models.APIs
     [XmlRoot("posts")]
     public class DanbooruPosts
     {
+        //[XmlArray("Modifiers"), XmlArrayItem(typeof(ModifyField), ElementName = "Modifier")]
         [XmlElement("post")]
-        public List<DanbooruPost> Posts{ get; set;}
+        public DanbooruPost[] Posts{ get; set;}
     }
 }
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Collections.Generic;
-using YABDL.Tools.Extenstions;
+using YABDL.Tools.Extensions;
+using System.IO;
+using System.Text;
 
 namespace YABDL.Models.APIs
 {
@@ -18,7 +20,16 @@ namespace YABDL.Models.APIs
                 this.success = this.GetDanbooruResponseCode(response.StatusCode, out this.message);
                 if (this.success)
                 {
-                    this.data = response.GetResponseStream().FromXML<T>();
+                    using(var stream = response.GetResponseStream())
+                    {
+                        using (var reader = new StreamReader(stream))
+                        {
+                            var dbg = reader.ReadToEnd();
+                            Console.WriteLine(dbg);
+                            this.data = stream.FromXml<T>(); // TODO : Move this call to something generic with an interface
+
+                        }
+                    }
                 }
             }
         }

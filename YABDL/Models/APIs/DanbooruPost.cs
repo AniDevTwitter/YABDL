@@ -6,7 +6,6 @@ namespace YABDL.Models.APIs
     [Serializable]
     public class DanbooruPost
     {
-
         [XmlElement("id")]
         public DanbooruBasicType<int> Id { get; set; }
 

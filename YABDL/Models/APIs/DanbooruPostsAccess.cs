@@ -3,7 +3,7 @@ using YABDL.Models.Interfaces;
 using System.Net;
 using System.Web;
 using System.Threading.Tasks;
-using YABDL.Tools.Extenstions;
+using YABDL.Tools.Extensions;
 
 namespace YABDL.Models.APIs
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace YABDL.Tools.Extenstions
+namespace YABDL.Tools.Extensions
 {
     public static class NullableExts
     {

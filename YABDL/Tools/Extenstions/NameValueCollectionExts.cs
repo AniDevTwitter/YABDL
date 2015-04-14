@@ -4,7 +4,7 @@ using System.Web;
 using System.Linq;
 using MoreLinq;
 
-namespace YABDL.Tools.Extenstions
+namespace YABDL.Tools.Extensions
 {
     public static class NameValueCollectionExts
     {

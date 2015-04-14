@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using YABDL.Tools.XML.Attributes;
 using MoreLinq;
-using YABDL.Tools.Extenstions;
+using YABDL.Tools.Extensions;
 
 namespace YABDL.Tools.XML.Generics
 {

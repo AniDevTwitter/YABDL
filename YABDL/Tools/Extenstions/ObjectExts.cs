@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Diagnostics;
 
-namespace YABDL.Tools.Extenstions
+namespace YABDL.Tools.Extensions
 {
     public static class ObjectExts
     {

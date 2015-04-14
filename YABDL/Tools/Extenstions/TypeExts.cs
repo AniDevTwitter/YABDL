@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YABDL.Tools.Extenstions
+namespace YABDL.Tools.Extensions
 {
     public static class TypeExts
     {
