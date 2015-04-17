@@ -46,6 +46,7 @@
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="Mono.Http" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -55,32 +56,34 @@
     <Compile Include="Tools\XML\Attributes\ComplexType.cs" />
     <Compile Include="Tools\XML\Generics\XMLComplexConverter.cs" />
     <Compile Include="Tools\XML\Generics\XMLFileAccess.cs" />
-    <Compile Include="Tools\Extenstions\ObjectExts.cs" />
     <Compile Include="Tools\XML\Generics\ModifyEntry.cs" />
     <Compile Include="Tools\XML\Generics\ModifyField.cs" />
-    <Compile Include="Tools\Extenstions\StringExts.cs" />
-    <Compile Include="Tools\Extenstions\NullableExts.cs" />
-    <Compile Include="Tools\Extenstions\TypeExts.cs" />
     <Compile Include="Models\Interfaces\IGlobalConf.cs" />
     <Compile Include="Models\XML\XMLGlobalConf.cs" />
     <Compile Include="Models\GlobalConf.cs" />
     <Compile Include="Views\MainWindow.cs" />
     <Compile Include="Models\Interfaces\IProvider.cs" />
     <Compile Include="Models\XML\XMLProvider.cs" />
-    <Compile Include="Models\APIs\DanbooruAccess.cs" />
-    <Compile Include="Tools\Extenstions\UriBuilderExts.cs" />
-    <Compile Include="Tools\Extenstions\XMLSerializableExts.cs" />
-    <Compile Include="Models\Interfaces\IAPIPostsAccess.cs" />
-    <Compile Include="Models\APIs\DanbooruWebResponse.cs" />
-    <Compile Include="Models\APIs\DanbooruPostsAccess.cs" />
-    <Compile Include="Models\APIs\DanbooruPosts.cs" />
-    <Compile Include="Models\APIs\DanbooruPost.cs" />
-    <Compile Include="Models\APIs\DanbooruBasicType.cs" />
-    <Compile Include="Tools\Extenstions\NameValueCollectionExts.cs" />
     <Compile Include="Models\SerializedAs.cs" />
     <Compile Include="Views\MainWindowVisual.cs" />
-    <Compile Include="Models\Interfaces\IAPIAccess.cs" />
-    <Compile Include="Models\Interfaces\IAPIResponse.cs" />
+    <Compile Include="Models\Interfaces\IProviderPosts.cs" />
+    <Compile Include="Models\XML\XMLProviderPosts.cs" />
+    <Compile Include="Models\API\DanbooruAccess.cs" />
+    <Compile Include="Models\API\DanbooruWebResponse.cs" />
+    <Compile Include="Models\API\Interfaces\IAPIAccess.cs" />
+    <Compile Include="Models\API\Interfaces\IAPIDataObject.cs" />
+    <Compile Include="Models\API\Interfaces\IAPIPostsAccess.cs" />
+    <Compile Include="Models\API\Interfaces\IAPIResponse.cs" />
+    <Compile Include="Tools\Extensions\ObjectExts.cs" />
+    <Compile Include="Tools\Extensions\StringExts.cs" />
+    <Compile Include="Tools\Extensions\NullableExts.cs" />
+    <Compile Include="Tools\Extensions\TypeExts.cs" />
+    <Compile Include="Tools\Extensions\UriBuilderExts.cs" />
+    <Compile Include="Tools\Extensions\XMLSerializableExts.cs" />
+    <Compile Include="Tools\Extensions\NameValueCollectionExts.cs" />
+    <Compile Include="Models\API\Posts\DanbooruPost.cs" />
+    <Compile Include="Models\API\Posts\DanbooruPosts.cs" />
+    <Compile Include="Models\API\Posts\DanbooruPostsAccess.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -96,9 +99,11 @@
     <Folder Include="Tools\XML\" />
     <Folder Include="Tools\XML\Generics\" />
     <Folder Include="Tools\XML\Attributes\" />
-    <Folder Include="Tools\Extenstions\" />
     <Folder Include="Models\Interfaces\" />
-    <Folder Include="Models\APIs\" />
+    <Folder Include="Models\API\" />
+    <Folder Include="Models\API\Interfaces\" />
+    <Folder Include="Tools\Extensions\" />
+    <Folder Include="Models\API\Posts\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

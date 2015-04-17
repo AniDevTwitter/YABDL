@@ -1,7 +1,7 @@
-﻿using System;
-using YABDL.Models.Interfaces;
+﻿using YABDL.Models.API.Interfaces;
+using YABDL.Models.API.Posts;
 
-namespace YABDL.Models.APIs
+namespace YABDL.Models.API
 {
     public class DanbooruAccess : IAPIAccess
     {

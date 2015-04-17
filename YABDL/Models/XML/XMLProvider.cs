@@ -7,7 +7,31 @@ namespace YABDL.Models.XML
     [Serializable]
     public class XMLProvider : IProvider
     {
+        [XmlElement("PostsProvider")]
+        public XMLProviderPosts PostsProviderSerial
+        {
+            get;
+            set;
+        }
+
         #region IProvider implementation
+
+        [XmlIgnore]
+        public IProviderPosts PostsProvider
+        {
+            get
+            {
+                return this.PostsProviderSerial;
+            }
+            set
+            {
+                var casted = value as XMLProviderPosts;
+                if (casted != null)
+                {
+                    this.PostsProviderSerial = casted;
+                }
+            }
+        }
 
         [XmlElement("Name")]
         public string Name

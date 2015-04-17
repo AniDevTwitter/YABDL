@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using YABDL.Models.APIs;
+using YABDL.Models.API;
+using YABDL.Models.Interfaces;
+using YABDL.Models.API.Posts;
 
-namespace YABDL.Models.Interfaces
+namespace YABDL.Models.API.Interfaces
 {
     public interface IAPIPostsAccess
     {

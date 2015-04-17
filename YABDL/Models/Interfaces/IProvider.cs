@@ -46,6 +46,8 @@ namespace YABDL.Models.Interfaces
         /// <value>The page REST key.</value>
         string Page { get; set; }
 
+
+        IProviderPosts PostsProvider { get; set; }
     }
 }
 

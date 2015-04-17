@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YABDL.Models.Interfaces
+namespace YABDL.Models.API.Interfaces
 {
     public interface IAPIResponse<T>
     {

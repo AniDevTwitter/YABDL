@@ -2,6 +2,8 @@
 using Gtk;
 using YABDL.Models.Interfaces;
 using YABDL.Models;
+using YABDL.Models.API.Interfaces;
+using YABDL.Models.API.Posts;
 
 
 namespace YABDL.Views
@@ -15,9 +17,11 @@ namespace YABDL.Views
         {
             this.conf = GlobalConf.GetGlobalConf();
             this.apiAccess = GlobalConf.GetAPIAccess();
-            var res = this.apiAccess.Posts.List(this.conf.Providers[0]);
-            res.RunSynchronously(); // error in xml document, this is bad fix this asap
-            var dbg = res.Result;
+            // DEBUG
+            var dbg = (DanbooruPostsAccess)apiAccess.Posts;
+            var dbg1 = dbg.ListDebug(this.conf.Providers[0]);
+
+            //DEBUG
             this.Title = this.conf.AppTitle;
             this.BuildVisual();
         }

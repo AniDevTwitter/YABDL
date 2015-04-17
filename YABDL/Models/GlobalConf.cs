@@ -2,7 +2,8 @@
 using YABDL.Models.Interfaces;
 using System.IO;
 using YABDL.Models.XML;
-using YABDL.Models.APIs;
+using YABDL.Models.API;
+using YABDL.Models.API.Interfaces;
 
 namespace YABDL.Models
 {

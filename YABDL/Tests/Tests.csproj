@@ -39,16 +39,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Models\APIs\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\YABDL.csproj">
       <Project>{B2115164-FDD9-43AD-9FC6-F5CE4128D524}</Project>
       <Name>YABDL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Models\APIs\DanbooruBasicTypeTests.cs" />
   </ItemGroup>
 </Project>

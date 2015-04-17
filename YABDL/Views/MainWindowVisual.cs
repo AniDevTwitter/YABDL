@@ -5,11 +5,11 @@ namespace YABDL.Views
 {
     public partial class MainWindow
     {
-        private HPaned layout;
+        //private HPaned layout;
 
         public void BuildVisual()
         {
-            this.layout = new HPaned();
+            //this.layout = new HPaned();
         }
     }
 }
