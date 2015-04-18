@@ -35,7 +35,7 @@ namespace YABDL.Models
         {
             if (GlobalConf.currentApiAccess == null)
             {
-                GlobalConf.currentApiAccess = new DanbooruAccess();
+                GlobalConf.currentApiAccess = new BooruAccess();
             }
             return GlobalConf.currentApiAccess;
         }

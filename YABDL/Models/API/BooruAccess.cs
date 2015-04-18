@@ -3,14 +3,14 @@ using YABDL.Models.API.Posts;
 
 namespace YABDL.Models.API
 {
-    public class DanbooruAccess : IAPIAccess
+    public class BooruAccess : IAPIAccess
     {
         private const SerializedAs SerializeAs = SerializedAs.XML; 
-        private readonly DanbooruPostsAccess posts;
+        private readonly BooruPostsAccess posts;
 
-        public DanbooruAccess()
+        public BooruAccess()
         {
-            this.posts = new DanbooruPostsAccess(SerializedAs.XML);
+            this.posts = new BooruPostsAccess(SerializedAs.XML);
         }
             
         #region IAPIGlobalAccess implementation

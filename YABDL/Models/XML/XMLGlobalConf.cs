@@ -71,7 +71,6 @@ namespace YABDL.Models.XML
                                 RawTags = @"raw",
                                 PostsProviderSerial = new XMLProviderPosts()
                                     {
-                                        Root = @"posts",
                                         Post = @"post",
                                         Id = @"id",
                                         CreatedAt = @"created-at",

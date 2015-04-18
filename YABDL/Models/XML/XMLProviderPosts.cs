@@ -10,9 +10,6 @@ namespace YABDL.Models.XML
 
         #region IProviderPosts implementation
 
-        [XmlElement("Root")]
-        public string Root { get; set;}
-
         [XmlElement("Posts")]
         public string Post{get;set;}
 

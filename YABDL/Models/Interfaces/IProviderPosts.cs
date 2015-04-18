@@ -4,7 +4,6 @@ namespace YABDL.Models.Interfaces
 {
     public interface IProviderPosts
     {
-        string Root{get; set;}
         string Post{get; set;}
 
         string Id { get; set; }

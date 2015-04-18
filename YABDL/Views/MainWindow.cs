@@ -18,8 +18,8 @@ namespace YABDL.Views
             this.conf = GlobalConf.GetGlobalConf();
             this.apiAccess = GlobalConf.GetAPIAccess();
             // DEBUG
-            var dbg = (DanbooruPostsAccess)apiAccess.Posts;
-            var dbg1 = dbg.ListDebug(this.conf.Providers[0]);
+            var dbg = (BooruPostsAccess)apiAccess.Posts;
+            var dbg1 = dbg.ShowUnwrapped(this.conf.Providers[0], 1);
 
             //DEBUG
             this.Title = this.conf.AppTitle;

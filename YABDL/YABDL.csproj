@@ -68,8 +68,6 @@
     <Compile Include="Views\MainWindowVisual.cs" />
     <Compile Include="Models\Interfaces\IProviderPosts.cs" />
     <Compile Include="Models\XML\XMLProviderPosts.cs" />
-    <Compile Include="Models\API\DanbooruAccess.cs" />
-    <Compile Include="Models\API\DanbooruWebResponse.cs" />
     <Compile Include="Models\API\Interfaces\IAPIAccess.cs" />
     <Compile Include="Models\API\Interfaces\IAPIDataObject.cs" />
     <Compile Include="Models\API\Interfaces\IAPIPostsAccess.cs" />
@@ -81,9 +79,12 @@
     <Compile Include="Tools\Extensions\UriBuilderExts.cs" />
     <Compile Include="Tools\Extensions\XMLSerializableExts.cs" />
     <Compile Include="Tools\Extensions\NameValueCollectionExts.cs" />
-    <Compile Include="Models\API\Posts\DanbooruPost.cs" />
-    <Compile Include="Models\API\Posts\DanbooruPosts.cs" />
-    <Compile Include="Models\API\Posts\DanbooruPostsAccess.cs" />
+    <Compile Include="Tools\Extensions\XElementExts.cs" />
+    <Compile Include="Models\API\BooruAccess.cs" />
+    <Compile Include="Models\API\BooruWebResponse.cs" />
+    <Compile Include="Models\API\Posts\BooruPostsAccess.cs" />
+    <Compile Include="Models\API\Posts\BooruPost.cs" />
+    <Compile Include="Models\API\Posts\BooruPosts.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

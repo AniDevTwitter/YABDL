@@ -1,11 +1,28 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Diagnostics;
+using System.Reflection;
+using System.Linq;
 
 namespace YABDL.Tools.Extensions
 {
     public static class ObjectExts
     {
+        public static TReturn Convert<T, TReturn>(this T obj)
+        {
+            var conversionOperator = typeof(T).GetMethods(BindingFlags.Static | BindingFlags.Public) // Check for public / static methods that can be used to convert
+                .Where(m => m.Name == "op_Explicit" || m.Name == "op_Implicit") // These names are the explicit/implicit operators names once compiled
+                .Where(m => m.ReturnType == typeof(TReturn)) // Check if the return type is the good one
+                .FirstOrDefault(m => m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(T)); // Check if parameters are valid to do the conversion if this type
+
+            if (conversionOperator != null)
+            {
+                return (TReturn)conversionOperator.Invoke(null, new object[]{ obj });
+            }
+
+            throw new ArgumentException("Convert failed as no explicit or implicit operator to cast element has been found");
+        }
+
         public static string ConvertToString(this object item)
         {
             return System.Convert.ToString(item);

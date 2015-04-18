@@ -6,14 +6,14 @@ using YABDL.Models.API.Interfaces;
 
 namespace YABDL.Models.API
 {
-    public class DanbooruWebResponse<T, U> : IAPIResponse<T>
+    public class BooruWebResponse<T, U> : IAPIResponse<T>
         where T : IAPIDataObject<U>, new()
     {
         private readonly bool success;
         private readonly string message;
         private readonly T data;
 
-        public DanbooruWebResponse(HttpWebRequest webRequest, U restMetadataProvider)
+        public BooruWebResponse(HttpWebRequest webRequest, U restMetadataProvider)
         {
             using(var response = (HttpWebResponse)webRequest.GetResponse())
             {
