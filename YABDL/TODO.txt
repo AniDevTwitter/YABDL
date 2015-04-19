@@ -4,7 +4,9 @@ You'll find here every features that will be implemented, if you don't find some
 Meta :
     - Add CLI front end 
     - Switch to Client/Server architecture (likely won't be done) 
-    
+    - Add changelog
+    - Do some release binaries (both for Windows & GNU/Linux)
+    - HowTo & wiki
 
 Core :
     - Sync / Bind folder with query
@@ -14,9 +16,8 @@ Core :
 
 
 GUI : 
-
     - Details about selected query
     - Details about selected provider
-    - Provider edition & addition (currently you can do it via the xml files in your .config/yabdl/globalConf.xml or you AppData\yabdl\globalConf.xml depending on your OS
+    - Provider edition & addition (currently you can do it via the xml files in the .config/yabdl/globalConf.xml or you AppData\yabdl\globalConf.xml depending on your OS
     - Filters by provider/state/label
     - Add label (aka grouping) queries

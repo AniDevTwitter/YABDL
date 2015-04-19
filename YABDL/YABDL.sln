@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YABDL", "YABDL.csproj", "{B2115164-FDD9-43AD-9FC6-F5CE4128D524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0450EFA7-D4DA-43FF-AF54-720D223FD2A1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{767B7827-7129-4116-8965-7CA28D26F7C7}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+		..\LICENSE = ..\LICENSE
+		TODO.txt = TODO.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +16,11 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0450EFA7-D4DA-43FF-AF54-720D223FD2A1}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0450EFA7-D4DA-43FF-AF54-720D223FD2A1}.Debug|x86.Build.0 = Debug|Any CPU
-		{0450EFA7-D4DA-43FF-AF54-720D223FD2A1}.Release|x86.ActiveCfg = Release|Any CPU
-		{0450EFA7-D4DA-43FF-AF54-720D223FD2A1}.Release|x86.Build.0 = Release|Any CPU
 		{B2115164-FDD9-43AD-9FC6-F5CE4128D524}.Debug|x86.ActiveCfg = Debug|x86
 		{B2115164-FDD9-43AD-9FC6-F5CE4128D524}.Debug|x86.Build.0 = Debug|x86
 		{B2115164-FDD9-43AD-9FC6-F5CE4128D524}.Release|x86.ActiveCfg = Release|x86
 		{B2115164-FDD9-43AD-9FC6-F5CE4128D524}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
