@@ -66,7 +66,6 @@
     <Compile Include="Models\XML\XMLProvider.cs" />
     <Compile Include="Models\SerializedAs.cs" />
     <Compile Include="Views\MainWindowVisual.cs" />
-    <Compile Include="Models\Interfaces\IProviderPosts.cs" />
     <Compile Include="Models\XML\XMLProviderPosts.cs" />
     <Compile Include="Models\API\Interfaces\IAPIAccess.cs" />
     <Compile Include="Models\API\Interfaces\IAPIDataObject.cs" />
@@ -85,6 +84,14 @@
     <Compile Include="Models\API\Posts\BooruPostsAccess.cs" />
     <Compile Include="Models\API\Posts\BooruPost.cs" />
     <Compile Include="Models\API\Posts\BooruPosts.cs" />
+    <Compile Include="Models\Interfaces\IProviderPost.cs" />
+    <Compile Include="Views\Filters\FiltersView.cs" />
+    <Compile Include="Views\Filters\FiltersViewVisuals.cs" />
+    <Compile Include="Views\Filters\ProviderViewModel.cs" />
+    <Compile Include="Views\Logs\LogsView.cs" />
+    <Compile Include="Views\Logs\LogType.cs" />
+    <Compile Include="Views\Logs\LogsViewVisuals.cs" />
+    <Compile Include="Views\Logs\LogViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -105,6 +112,9 @@
     <Folder Include="Models\API\Interfaces\" />
     <Folder Include="Tools\Extensions\" />
     <Folder Include="Models\API\Posts\" />
+    <Folder Include="Views\Filters\" />
+    <Folder Include="Views\Logs\" />
+    <Folder Include="Views\NewQuery\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -119,5 +129,6 @@
   </ProjectExtensions>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TODO.txt" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 namespace YABDL.Models.Interfaces
 {
-    public interface IProviderPosts
+    public interface IProviderPost
     {
         string Post{get; set;}
 

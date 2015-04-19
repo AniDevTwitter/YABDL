@@ -8,9 +8,9 @@ using System.Xml.Linq;
 
 namespace YABDL.Models.API.Posts
 {
-    public class BooruPost  : IAPIDataObject<IProviderPosts>
+    public class BooruPost  : IAPIDataObject<IProviderPost>
     {
-        public void DeserializeFromXML(XElement post, IProviderPosts metas)
+        public void DeserializeFromXML(XElement post, IProviderPost metas)
         {
             this.Id = (int)post.Descendants(metas.Id).First();
             this.CreatedAt = (DateTime)post.Descendants(metas.CreatedAt).First();
@@ -65,12 +65,12 @@ namespace YABDL.Models.API.Posts
 
         #region IAPIDataObject implementation
 
-        public void DeserializeFromXML(Stream xml, IProviderPosts metas)
+        public void DeserializeFromXML(Stream xml, IProviderPost metas)
         {
             this.DeserializeFromXML(xml.ToXDocument().Root, metas);
         }
 
-        public Stream SerializeToXML(IProviderPosts restMetatadatasProvider)
+        public Stream SerializeToXML(IProviderPost restMetatadatasProvider)
         {
             // TODO : Handle serialize into xml, but not now since it's pointless
             throw new NotImplementedException();

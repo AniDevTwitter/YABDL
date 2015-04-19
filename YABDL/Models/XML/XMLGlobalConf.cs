@@ -28,18 +28,10 @@ namespace YABDL.Models.XML
 
 
         [XmlElement("AppTitle")]
-        public string AppTitle
-        {
-            get;
-            set;
-        }
+        public string AppTitle {get; set;}
 
         [XmlArray("Providers"), XmlArrayItem(typeof(XMLProvider), ElementName = "Provider")]
-        public List<IProvider> Providers
-        {
-            get;
-            set;
-        }
+        public List<IProvider> Providers {get; set; }
 
         #endregion
 
@@ -69,9 +61,9 @@ namespace YABDL.Models.XML
                                 Posts = @"/posts",
                                 Tags = @"tags",
                                 RawTags = @"raw",
-                                PostsProviderSerial = new XMLProviderPosts()
+                                PostProviderSerial = new XMLProviderPosts()
                                     {
-                                        Post = @"post",
+                                        Post = @"po1st",
                                         Id = @"id",
                                         CreatedAt = @"created-at",
                                         UploaderId = @"uploader-id",

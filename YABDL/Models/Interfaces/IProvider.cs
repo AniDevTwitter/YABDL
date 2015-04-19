@@ -47,7 +47,7 @@ namespace YABDL.Models.Interfaces
         string Page { get; set; }
 
 
-        IProviderPosts PostsProvider { get; set; }
+        IProviderPost PostProvider { get; set; }
     }
 }
 

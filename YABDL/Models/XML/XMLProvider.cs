@@ -7,8 +7,8 @@ namespace YABDL.Models.XML
     [Serializable]
     public class XMLProvider : IProvider
     {
-        [XmlElement("PostsProvider")]
-        public XMLProviderPosts PostsProviderSerial
+        [XmlElement("PostProvider")]
+        public XMLProviderPosts PostProviderSerial
         {
             get;
             set;
@@ -17,18 +17,18 @@ namespace YABDL.Models.XML
         #region IProvider implementation
 
         [XmlIgnore]
-        public IProviderPosts PostsProvider
+        public IProviderPost PostProvider
         {
             get
             {
-                return this.PostsProviderSerial;
+                return this.PostProviderSerial;
             }
             set
             {
                 var casted = value as XMLProviderPosts;
                 if (casted != null)
                 {
-                    this.PostsProviderSerial = casted;
+                    this.PostProviderSerial = casted;
                 }
             }
         }

@@ -10,13 +10,13 @@ using MoreLinq;
 
 namespace YABDL.Models.API.Posts
 {
-    public class BooruPosts : IAPIDataObject<IProviderPosts>
+    public class BooruPosts : IAPIDataObject<IProviderPost>
     {
         public List<BooruPost> Posts{ get; set;}
 
         #region IAPIDataObject implementation
 
-        public void DeserializeFromXML(Stream xml, IProviderPosts metas)
+        public void DeserializeFromXML(Stream xml, IProviderPost metas)
         {
             var document = xml.ToXDocument();
             this.Posts = document.Root.Descendants(metas.Post).Select(x => 
@@ -28,7 +28,7 @@ namespace YABDL.Models.API.Posts
         }
            
 
-        public Stream SerializeToXML(IProviderPosts restMetatadatasProvider)
+        public Stream SerializeToXML(IProviderPost restMetatadatasProvider)
         {
             // TODO : Handle serialize into xml, but not now since it's pointless
             throw new NotImplementedException();

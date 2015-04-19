@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 namespace YABDL.Models.XML
 {
     [Serializable]
-    public class XMLProviderPosts : IProviderPosts
+    public class XMLProviderPosts : IProviderPost
     {
 
         #region IProviderPosts implementation

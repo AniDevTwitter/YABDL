@@ -21,7 +21,7 @@ namespace YABDL.Models.API.Posts
             var request = new UriBuilder(provider.Url);
             request.Path = provider.Posts + "/" + id + this.extension;
             //Nothing to query beside the id in url so yolo
-            return new BooruWebResponse<BooruPost, IProviderPosts>(WebRequest.CreateHttp(request.Uri), provider.PostsProvider);
+            return new BooruWebResponse<BooruPost, IProviderPost>(WebRequest.CreateHttp(request.Uri), provider.PostProvider);
         }
 
         public Task<IAPIResponse<BooruPost>> Show(IProvider provider, int id)
@@ -53,7 +53,7 @@ namespace YABDL.Models.API.Posts
             }
             request.Query = query.ToString();
             // We assume it's HTTP but in the future it should handle other protocols too
-            return new BooruWebResponse<BooruPosts, IProviderPosts>(WebRequest.CreateHttp(request.Uri), provider.PostsProvider);
+            return new BooruWebResponse<BooruPosts, IProviderPost>(WebRequest.CreateHttp(request.Uri), provider.PostProvider);
         }
             
         public Task<IAPIResponse<BooruPosts>> List(IProvider provider, int page = -1, int limit = -1, string tags = "", bool rawtags = false)
