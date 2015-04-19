@@ -16,7 +16,7 @@ namespace YABDL.Models.API.Posts
             this.extension = type.GetExtension();
         }
 
-        public IAPIResponse<BooruPost> ShowUnwrapped(IProvider provider, int id)
+        public IAPIResponse<BooruPost> Show(IProvider provider, int id)
         {
             var request = new UriBuilder(provider.Url);
             request.Path = provider.Posts + "/" + id + this.extension;
@@ -24,12 +24,12 @@ namespace YABDL.Models.API.Posts
             return new BooruWebResponse<BooruPost, IProviderPost>(WebRequest.CreateHttp(request.Uri), provider.PostProvider);
         }
 
-        public Task<IAPIResponse<BooruPost>> Show(IProvider provider, int id)
+        public async Task<IAPIResponse<BooruPost>> ShowAsync(IProvider provider, int id)
         {
-            return new Task<IAPIResponse<BooruPost>>(() => this.ShowUnwrapped(provider, id));
+            return await Task.Run(() => this.Show(provider, id));
         }
 
-        public IAPIResponse<BooruPosts> ListUnwrapped(IProvider provider, int page = -1, int limit = -1, string tags = "", bool rawtags = false)
+        public IAPIResponse<BooruPosts> List(IProvider provider, int page = -1, int limit = -1, string tags = "", bool rawtags = false)
         {
             var request = new UriBuilder(provider.Url);
             request.Path = provider.Posts + this.extension;
@@ -56,9 +56,9 @@ namespace YABDL.Models.API.Posts
             return new BooruWebResponse<BooruPosts, IProviderPost>(WebRequest.CreateHttp(request.Uri), provider.PostProvider);
         }
             
-        public Task<IAPIResponse<BooruPosts>> List(IProvider provider, int page = -1, int limit = -1, string tags = "", bool rawtags = false)
+        public async Task<IAPIResponse<BooruPosts>> ListAsync(IProvider provider, int page = -1, int limit = -1, string tags = "", bool rawtags = false)
         {
-            return new Task<IAPIResponse<BooruPosts>>(() => this.ListUnwrapped(provider, page, limit, tags, rawtags));
+            return await Task.Run(() => this.List(provider, page, limit, tags, rawtags));
         }
     }
 }

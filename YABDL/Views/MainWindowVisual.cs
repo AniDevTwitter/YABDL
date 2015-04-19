@@ -8,9 +8,6 @@ namespace YABDL.Views
     public partial class MainWindow
     {
         // Layouts
-        private VPaned mainLayout;
-        private HPaned topLayout;
-        private VBox toolbarMainLayout;
         private Toolbar toolbar;
         private Notebook details;
 
@@ -21,9 +18,9 @@ namespace YABDL.Views
 
         private void BuildVisual()
         {
-            this.toolbarMainLayout = new VBox(false, 2);
-            this.mainLayout = new VPaned();
-            this.topLayout = new HPaned();
+            var toolbarMainLayout = new VBox(false, 2);
+            var mainLayout = new VPaned();
+            var topLayout = new HPaned();
 
             this.filters = new FiltersView(this.conf.Providers);
 
@@ -31,15 +28,15 @@ namespace YABDL.Views
             this.SetupToolbar();
             this.SetupDetails();
 
-            this.mainLayout.Add1(this.topLayout);
-            this.mainLayout.Add2(this.details);
-            this.topLayout.Add1(this.filters);
-            this.topLayout.Add2(new Label("HUURRR"));
-            this.toolbarMainLayout.PackStart(this.toolbar, false, false, 0);
-            this.toolbarMainLayout.PackStart(this.mainLayout, true, true, 0);
+            mainLayout.Add1(topLayout);
+            mainLayout.Add2(this.details);
+            topLayout.Add1(this.filters);
+            topLayout.Add2(new Label("HUURRR"));
+            toolbarMainLayout.PackStart(this.toolbar, false, false, 0);
+            toolbarMainLayout.PackStart(mainLayout, true, true, 0);
 
 
-            this.Add(this.toolbarMainLayout);
+            this.Add(toolbarMainLayout);
 
         }
 

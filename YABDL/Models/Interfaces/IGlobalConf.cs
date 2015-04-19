@@ -19,11 +19,23 @@ namespace YABDL.Models.Interfaces
         /// Gets or sets the providers this app has.
         /// </summary>
         /// <value>The providers this app has.</value>
-        List<IProvider> Providers
+        IList<IProvider> Providers
         {
             get;
             set;
         }
+
+        /// <summary>
+        /// Gets or sets the providers this app has.
+        /// </summary>
+        /// <value>The providers this app has.</value>
+        IList<IQuery> Queries
+        {
+            get;
+            set;
+        }
+
+
         /// <summary>
         /// Make this instance persists.
         /// </summary>

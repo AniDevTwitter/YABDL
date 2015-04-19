@@ -2,6 +2,9 @@
 
 namespace YABDL.Models.Interfaces
 {
+    /// <summary>
+    /// A referal for not hardcoding node names in returned data from providers
+    /// </summary>
     public interface IProviderPost
     {
         string Post{get; set;}

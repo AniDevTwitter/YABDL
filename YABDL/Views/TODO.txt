@@ -1,0 +1,22 @@
+﻿Hi probably future me or curious person !
+You'll find here every features that will be implemented, if you don't find something you would add here, well just tell me via GitHub, Twitter or any other way.
+
+Meta :
+    - Add CLI front end 
+    - Switch to Client/Server architecture (likely won't be done) 
+    - Do the fucking doc
+
+Core :
+    - Sync / Bind folder with query
+    - Support JSON in API
+    - Support JSON in confFiles
+    - Avoid duplicate files
+
+
+GUI : 
+
+    - Details about selected query
+    - Details about selected provider
+    - Provider edition & addition (currently you can do it via the xml files in your .config/yabdl/globalConf.xml or you AppData\yabdl\globalConf.xml depending on your OS
+    - Filters by provider/state/label
+    - Add label (aka grouping) queries

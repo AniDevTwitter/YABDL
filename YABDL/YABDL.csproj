@@ -92,6 +92,11 @@
     <Compile Include="Views\Logs\LogType.cs" />
     <Compile Include="Views\Logs\LogsViewVisuals.cs" />
     <Compile Include="Views\Logs\LogViewModel.cs" />
+    <Compile Include="Views\NewQuery\NewQueryView.cs" />
+    <Compile Include="Views\NewQuery\NewQueryViewVisuals.cs" />
+    <Compile Include="Models\Interfaces\IQuery.cs" />
+    <Compile Include="Models\XML\XMLQuery.cs" />
+    <Compile Include="Models\Downloader\AbstractQuery.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -115,6 +120,7 @@
     <Folder Include="Views\Filters\" />
     <Folder Include="Views\Logs\" />
     <Folder Include="Views\NewQuery\" />
+    <Folder Include="Models\Downloader\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

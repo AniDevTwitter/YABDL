@@ -16,6 +16,9 @@ namespace YABDL.Models.XML
 
         #region IProvider implementation
 
+        [XmlElement("Id")]
+        public Guid Id { get; set; }
+
         [XmlIgnore]
         public IProviderPost PostProvider
         {

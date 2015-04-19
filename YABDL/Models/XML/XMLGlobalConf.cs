@@ -25,13 +25,15 @@ namespace YABDL.Models.XML
             // RIP if exception
             XMLFileAccess.Write(this, XMLGlobalConf.GlobalConfPath);
         }
-
-
+            
         [XmlElement("AppTitle")]
         public string AppTitle {get; set;}
 
         [XmlArray("Providers"), XmlArrayItem(typeof(XMLProvider), ElementName = "Provider")]
-        public List<IProvider> Providers {get; set; }
+        public IList<IProvider> Providers {get; set; }
+
+        [XmlArray("Queries"), XmlArrayItem(typeof(XMLQuery), ElementName = "Query")]
+        public IList<IQuery> Queries { get; set;}
 
         #endregion
 
@@ -50,10 +52,12 @@ namespace YABDL.Models.XML
             var retVal = new XMLGlobalConf()
                 {
                     AppTitle = @"Yet Another Booru DownLoader",
+                    Queries = new List<IQuery>(),
                     Providers = new List<IProvider>
                         {
                             new XMLProvider()
                             {
+                                Id = Guid.NewGuid(),
                                 Name = @"Danbooru",
                                 Url = @"danbooru.donmai.us",
                                 Limit = @"limit",

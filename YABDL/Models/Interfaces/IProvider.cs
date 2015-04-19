@@ -2,8 +2,17 @@
 
 namespace YABDL.Models.Interfaces
 {
+    /// <summary>
+    /// Represent a booru provider (like danbooru, safebooru etc etc).
+    /// </summary>
     public interface IProvider
     {
+        /// <summary>
+        /// Gets or sets the identifier for this provider (used to bind queries to one/multiple provider).
+        /// </summary>
+        /// <value>The identifier of this provider.</value>
+        Guid Id{get; set;}
+
         /// <summary>
         /// Gets or sets the name of this provider.
         /// </summary>
@@ -46,7 +55,10 @@ namespace YABDL.Models.Interfaces
         /// <value>The page REST key.</value>
         string Page { get; set; }
 
-
+        /// <summary>
+        /// Gets or sets the post node names provider.
+        /// </summary>
+        /// <value>Posts node names provider.</value>
         IProviderPost PostProvider { get; set; }
     }
 }
