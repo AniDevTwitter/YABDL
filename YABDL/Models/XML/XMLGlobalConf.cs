@@ -4,6 +4,7 @@ using System.IO;
 using System.Xml.Serialization;
 using YABDL.Tools.XML.Generics;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace YABDL.Models.XML
 {
@@ -16,7 +17,10 @@ namespace YABDL.Models.XML
         public XMLGlobalConf()
         {
             this.Providers = new List<IProvider>();
+            this.Queries = new List<IQuery>();
         }
+
+
 
         #region IGlobalConf implementation
 
@@ -30,10 +34,10 @@ namespace YABDL.Models.XML
         public string AppTitle {get; set;}
 
         [XmlArray("Providers"), XmlArrayItem(typeof(XMLProvider), ElementName = "Provider")]
-        public IList<IProvider> Providers {get; set; }
+        public List<IProvider> Providers {get; set;}
 
         [XmlArray("Queries"), XmlArrayItem(typeof(XMLQuery), ElementName = "Query")]
-        public IList<IQuery> Queries { get; set;}
+        public List<IQuery> Queries {get; set;}
 
         #endregion
 
@@ -65,7 +69,7 @@ namespace YABDL.Models.XML
                                 Posts = @"/posts",
                                 Tags = @"tags",
                                 RawTags = @"raw",
-                                PostProviderSerial = new XMLProviderPosts()
+                                PostProvider = new XMLProviderPosts()
                                     {
                                         Post = @"po1st",
                                         Id = @"id",

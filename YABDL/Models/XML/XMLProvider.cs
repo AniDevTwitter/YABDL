@@ -7,33 +7,16 @@ namespace YABDL.Models.XML
     [Serializable]
     public class XMLProvider : IProvider
     {
-        [XmlElement("PostProvider")]
-        public XMLProviderPosts PostProviderSerial
-        {
-            get;
-            set;
-        }
-
         #region IProvider implementation
 
         [XmlElement("Id")]
         public Guid Id { get; set; }
 
-        [XmlIgnore]
+        [XmlElement("PostProvider", typeof(XMLProviderPosts))]
         public IProviderPost PostProvider
         {
-            get
-            {
-                return this.PostProviderSerial;
-            }
-            set
-            {
-                var casted = value as XMLProviderPosts;
-                if (casted != null)
-                {
-                    this.PostProviderSerial = casted;
-                }
-            }
+            get;
+            set;
         }
 
         [XmlElement("Name")]

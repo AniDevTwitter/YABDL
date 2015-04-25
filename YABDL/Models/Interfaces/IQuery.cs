@@ -10,7 +10,7 @@ namespace YABDL.Models.Interfaces
         /// Gets or sets the providers ids binded to this query.
         /// </summary>
         /// <value>The providers.</value>
-        IList<Guid> Providers { get; set; }
+        List<Guid> Providers { get; set; }
 
         string FolderPath {get; set;}
 

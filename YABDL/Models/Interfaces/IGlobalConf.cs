@@ -19,7 +19,7 @@ namespace YABDL.Models.Interfaces
         /// Gets or sets the providers this app has.
         /// </summary>
         /// <value>The providers this app has.</value>
-        IList<IProvider> Providers
+        List<IProvider> Providers
         {
             get;
             set;
@@ -29,7 +29,7 @@ namespace YABDL.Models.Interfaces
         /// Gets or sets the providers this app has.
         /// </summary>
         /// <value>The providers this app has.</value>
-        IList<IQuery> Queries
+        List<IQuery> Queries
         {
             get;
             set;

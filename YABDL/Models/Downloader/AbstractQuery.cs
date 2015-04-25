@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using YABDL.Models.API.Interfaces;
 using System.Linq;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace YABDL.Models.Downloader
 {
@@ -17,12 +18,10 @@ namespace YABDL.Models.Downloader
             this.locker = new object();
 
         }
-
-        public abstract IList<Tuple<string, string>> ToDownload {get; set;}
-
+          
         #region IQuery implementation
 
-        public abstract IList<Guid> Providers { get; set; }
+        public abstract List<Guid> Providers { get; set; }
         public abstract string Tags {get; set;}
         public abstract string FolderPath {get; set; }
 
@@ -30,15 +29,14 @@ namespace YABDL.Models.Downloader
         {
             lock (locker)
             {
-                if (this.ToDownload == null)
-                {
-                    // Avoid Random changes leading to break the loop
-                    var tags = this.Tags;
-                    // parrallel is stupid here as cpu isn't the bottleneck
-                    this.ToDownload = this.Providers.ToList().AsParallel().SelectMany(x => this.GetPostsLinks(access, idToProvider[x], tags)).ToList();
-                }
+
+                // Avoid Random changes leading to break the loop
+                var tags = this.Tags;
+                // parrallel is stupid here as cpu isn't the bottleneck
+                var toDownload = this.Providers.ToList().AsParallel().SelectMany(x => this.GetPostsLinks(access, idToProvider[x], tags)).ToList();
+
                 var folderPath = this.FolderPath;
-                this.ToDownload.AsParallel().ForAll(x => this.DownloadAndWriteToDisk(Path.Combine(folderPath, x.Item1), x.Item2));
+                toDownload.AsParallel().ForAll(x => this.DownloadAndWriteToDisk(Path.Combine(folderPath, x.Item1), x.Item2));
             }
         }
 
