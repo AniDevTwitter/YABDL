@@ -3,7 +3,7 @@ Yet Another Booru DownLoader
 
 Status : Not functionnal... Yet :^)
 
-# About this project :
+# About this project
 
 This is intended to be a tool to download pictures with batch actions that I will personnally use.
 This isn't intended to better than any other tool, especially your nice scripts that already does the job.
