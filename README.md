@@ -6,22 +6,16 @@ Status : Not functionnal... Yet :^)
 # About this project :
 
 This is intended to be a tool to download pictures with batch actions that I will personnally use.
-
 This isn't intended to better than any other tool, especially your nice scripts that already does the job.
 
-
 This is intended to be crossplatform between GNU/Linux and Windows.
-
 This isn't intended to be supported on Mac for few reasons :
  - I don't own a Mac 
  - I don't support Apple in any way and will probably never
  - I don't understand why people who run MacOS would go further than running itunes and browsing facebook.
 
-
 This is intended to be a project where I can learn, because we never stop learning (here basically GTK# and crossplatforming with C#)
-
 This isn't intended to be a professionnal app with active support, if you get a bug and I'm too busy to fix it, fix it yourself (I'm usually reactive about them tho) 
-
 
 # FAQ
 
