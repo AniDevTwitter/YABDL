@@ -6,7 +6,7 @@ using YABDL.Tools.Extensions;
 namespace YABDL.Views.ViewModels
 {
     [TreeNode(ListOnly=true)]
-    public class ProviderViewModel : TreeNode
+    public class ProviderViewModel : TreeNode, IViewModel<IProvider>
     {
         private readonly IProvider provider;
 
@@ -40,6 +40,18 @@ namespace YABDL.Views.ViewModels
                 this.provider.Url = value;
             }
         }
+
+        #region IViewModel implementation
+
+        public IProvider Model
+        {
+            get
+            {
+                return this.provider;
+            }
+        }
+
+        #endregion
     }
 }
 

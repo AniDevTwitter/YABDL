@@ -97,8 +97,9 @@
     <Compile Include="Models\XML\XMLQuery.cs" />
     <Compile Include="Models\Downloader\AbstractQuery.cs" />
     <Compile Include="Views\ViewModels\ProviderViewModel.cs" />
-    <Compile Include="Tools\Views\BoundedNodeStore.cs" />
-    <Compile Include="Tools\Views\BoundedList.cs" />
+    <Compile Include="Views\ViewModels\Common\BoundedList.cs" />
+    <Compile Include="Views\ViewModels\Common\BoundedNodeStore.cs" />
+    <Compile Include="Views\ViewModels\IViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -125,6 +126,7 @@
     <Folder Include="Models\Downloader\" />
     <Folder Include="Views\ViewModels\" />
     <Folder Include="Tools\Views\" />
+    <Folder Include="Views\ViewModels\Common\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

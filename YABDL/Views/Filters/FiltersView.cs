@@ -1,7 +1,7 @@
 ﻿using Gtk;
 using YABDL.Views.ViewModels;
 using System.Collections.ObjectModel;
-using YABDL.Tools.Views;
+using YABDL.Views.ViewModels.Common;
 
 namespace YABDL.Views.Filters
 {

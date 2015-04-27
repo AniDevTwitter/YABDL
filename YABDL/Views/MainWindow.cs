@@ -1,12 +1,10 @@
-﻿using System;
-using Gtk;
+﻿using Gtk;
 using YABDL.Models.Interfaces;
 using YABDL.Models;
 using YABDL.Models.API.Interfaces;
-using YABDL.Models.API.Posts;
 using System.Collections.ObjectModel;
 using YABDL.Views.ViewModels;
-using System.Linq;
+using YABDL.Views.ViewModels.Common;
 
 
 namespace YABDL.Views
@@ -22,7 +20,7 @@ namespace YABDL.Views
         {
             this.conf = GlobalConf.GetGlobalConf();
             this.apiAccess = GlobalConf.GetAPIAccess();
-            this.providers = new ObservableCollection<ProviderViewModel>(this.conf.Providers.Select(x => new ProviderViewModel(x)));
+            this.providers = new BoundedList<ProviderViewModel, IProvider>(this.conf.Providers, x => new ProviderViewModel(x));
             this.Title = this.conf.AppTitle;
             this.BuildVisual();
             this.ShowAll();
