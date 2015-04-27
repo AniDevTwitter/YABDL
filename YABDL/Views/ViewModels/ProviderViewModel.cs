@@ -3,7 +3,7 @@ using Gtk;
 using YABDL.Models.Interfaces;
 using YABDL.Tools.Extensions;
 
-namespace YABDL.Views.Filters
+namespace YABDL.Views.ViewModels
 {
     [TreeNode(ListOnly=true)]
     public class ProviderViewModel : TreeNode

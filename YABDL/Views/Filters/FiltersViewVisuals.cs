@@ -1,7 +1,6 @@
-﻿using System;
-using Gtk;
-using System.Linq;
+﻿using Gtk;
 using MoreLinq;
+using YABDL.Views.ViewModels;
 
 namespace YABDL.Views.Filters
 {
@@ -24,7 +23,6 @@ namespace YABDL.Views.Filters
                 };
             this.SetupColumn(this.AppendColumn("Name", nameRenderer, "text", 0));
             this.SetupColumn(this.AppendColumn("Url", urlRenderer, "text", 1));
-            this.providers.Values.ForEach(x => this.NodeStore.AddNode(x));
 
         }
 

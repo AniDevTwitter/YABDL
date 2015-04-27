@@ -22,7 +22,7 @@ namespace YABDL.Views
             var mainLayout = new VPaned();
             var topLayout = new HPaned();
 
-            this.filters = new FiltersView(this.conf.Providers);
+            this.filters = new FiltersView(this.providers);
 
 
             this.SetupToolbar();
@@ -43,6 +43,7 @@ namespace YABDL.Views
         private void SetupDetails()
         {
             this.details = new Notebook();
+            this.details.TabPos = PositionType.Bottom;
             this.logs = new LogsView();
             this.details.AppendPage(this.logs, new Label("Logs"));
         }

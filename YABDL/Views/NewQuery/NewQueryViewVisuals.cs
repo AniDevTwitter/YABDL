@@ -1,4 +1,5 @@
 ﻿using System;
+using Gtk;
 
 namespace YABDL.Views.NewQuery
 {
@@ -6,7 +7,9 @@ namespace YABDL.Views.NewQuery
     {
         private void BuildVisuals()
         {
+            var layout = new HBox();
 
+            this.Add(layout);
         }
     }
 }

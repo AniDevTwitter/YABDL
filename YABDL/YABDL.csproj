@@ -87,7 +87,6 @@
     <Compile Include="Models\Interfaces\IProviderPost.cs" />
     <Compile Include="Views\Filters\FiltersView.cs" />
     <Compile Include="Views\Filters\FiltersViewVisuals.cs" />
-    <Compile Include="Views\Filters\ProviderViewModel.cs" />
     <Compile Include="Views\Logs\LogsView.cs" />
     <Compile Include="Views\Logs\LogType.cs" />
     <Compile Include="Views\Logs\LogsViewVisuals.cs" />
@@ -97,6 +96,9 @@
     <Compile Include="Models\Interfaces\IQuery.cs" />
     <Compile Include="Models\XML\XMLQuery.cs" />
     <Compile Include="Models\Downloader\AbstractQuery.cs" />
+    <Compile Include="Views\ViewModels\ProviderViewModel.cs" />
+    <Compile Include="Tools\Views\BoundedNodeStore.cs" />
+    <Compile Include="Tools\Views\BoundedList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -121,6 +123,8 @@
     <Folder Include="Views\Logs\" />
     <Folder Include="Views\NewQuery\" />
     <Folder Include="Models\Downloader\" />
+    <Folder Include="Views\ViewModels\" />
+    <Folder Include="Tools\Views\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

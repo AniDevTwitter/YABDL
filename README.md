@@ -3,6 +3,42 @@ Yet Another Booru DownLoader
 
 Status : Not functionnal... Yet :^)
 
-You can check the todolist here : https://github.com/AniDevTwitter/YABDL/blob/master/YABDL/TODO.txt
+# About this project :
 
-There's no changelog yet since it's not currently & actively used
+This is intended to be a tool to download pictures with batch actions that I will personnally use.
+This isn't intended to better than any other tool, especially your nice scripts that already does the job.
+
+This is intended to be crossplatform between GNU/Linux and Windows.
+This isn't intended to be supported on Mac for few reasons :
+    - I don't own a Mac
+    - I don't support Apple in any way and will probably never
+    - I don't understand why people who run MacOS would go further than running itunes and browsing facebook.
+
+This is intended to be a project where I can learn, because we never stop learning (here basically GTK# and crossplatforming with C#)
+This isn't intended to be a professionnal app with active support, if you get a bug and I'm too busy to fix it, fix it yourself (I'm usually reactive about them tho) 
+
+
+# FAQ
+
+Where are the binaries/recipe/package ?
+ - Well, it's not even working yet, don't expect "correct" releases soon
+
+Can I fork it ? Make it mine ? Do xxx ?
+ - Yes (and I'll be more than happy if so), if it respects the license (GPLv3)
+
+Why did you this license ?
+ - Because first it's intended to be educationnal aka help developers, second because I want to respect users, third are personnal reasons including not wanting this code (even though it's not likely) to be used in a bootleg app that shove ads to people or such (it gives judicial power)
+
+Will X functionnality be implemented ?
+ - You can check the todolist here : https://github.com/AniDevTwitter/YABDL/blob/master/YABDL/TODO.txt, if it's not in it just ask me, I'll probably add it
+
+Why C# ?
+ - The language is quite fitting for these kind of tasks, aka a basic app without complex system related code and performance related issues
+    (Also : Personnal preference)
+
+Why GTK# ?
+ - It's a well made cross platform GUI framework for C# that avoid writing style related stuff (using system style).
+    (Also : Wanted to learn it to have atleast one GUI framework to work on GNU/Linux systems)
+
+Where can I contact you ?
+ - Github : Uwy, Twitter : http://www.twitter.com/UwyBBQ
