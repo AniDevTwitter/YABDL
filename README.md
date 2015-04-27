@@ -14,8 +14,8 @@ This isn't intended to be supported on Mac for few reasons :
  - I don't support Apple in any way and will probably never
  - I don't understand why people who run MacOS would go further than running itunes and browsing facebook.
 
-This is intended to be a project where I can learn, because we never stop learning (here basically GTK# and crossplatforming with C#)
-This isn't intended to be a professionnal app with active support, if you get a bug and I'm too busy to fix it, fix it yourself (I'm usually reactive about them tho) 
+This is intended to be a project where I can learn, because we never stop learning (here basically GTK# and crossplatforming with C#).
+This isn't intended to be a professionnal app with active support, if you get a bug and I'm too busy to fix it, fix it yourself (I'm usually reactive about them tho).
 
 # FAQ
 
@@ -29,7 +29,7 @@ Can I fork it ? Make it mine ? Do xxx ?
 Why did you this license ?
  - It's intended to be educationnal aka help developers
  - Because I want to respect users
- - Personnal reasons including not wanting this code (even though it's not likely) to be used in a bootleg app that shove ads to people or such (it gives judicial power)
+ - Personnal reasons
 
 Will X functionnality be implemented ?
  - You can check the todolist here : https://github.com/AniDevTwitter/YABDL/blob/master/YABDL/TODO.txt,
