@@ -99,7 +99,11 @@
     <Compile Include="Views\ViewModels\ProviderViewModel.cs" />
     <Compile Include="Views\ViewModels\Common\BoundedList.cs" />
     <Compile Include="Views\ViewModels\Common\BoundedNodeStore.cs" />
-    <Compile Include="Views\ViewModels\IViewModel.cs" />
+    <Compile Include="Views\ViewModels\Interfaces\IViewModel.cs" />
+    <Compile Include="Views\NewQuery\NewQueryEventArgs.cs" />
+    <Compile Include="Models\Interfaces\IFactory.cs" />
+    <Compile Include="Models\XML\XMLFactory.cs" />
+    <Compile Include="Views\Common\AppIcons.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -125,8 +129,9 @@
     <Folder Include="Views\NewQuery\" />
     <Folder Include="Models\Downloader\" />
     <Folder Include="Views\ViewModels\" />
-    <Folder Include="Tools\Views\" />
     <Folder Include="Views\ViewModels\Common\" />
+    <Folder Include="Views\ViewModels\Interfaces\" />
+    <Folder Include="Views\Common\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

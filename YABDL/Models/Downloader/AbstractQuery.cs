@@ -24,6 +24,7 @@ namespace YABDL.Models.Downloader
         public abstract List<Guid> Providers { get; set; }
         public abstract string Tags {get; set;}
         public abstract string FolderPath {get; set; }
+        public abstract string Label { get; set; }
 
         public void Execute(IAPIAccess access, IReadOnlyDictionary<Guid, IProvider> idToProvider)
         {
@@ -33,10 +34,11 @@ namespace YABDL.Models.Downloader
                 // Avoid Random changes leading to break the loop
                 var tags = this.Tags;
                 // parrallel is stupid here as cpu isn't the bottleneck
-                var toDownload = this.Providers.ToList().AsParallel().SelectMany(x => this.GetPostsLinks(access, idToProvider[x], tags)).ToList();
+                var toDownload = this.Providers.ToList().SelectMany(x => this.GetPostsLinks(access, idToProvider[x], tags)).ToList();
 
                 var folderPath = this.FolderPath;
-                toDownload.AsParallel().ForAll(x => this.DownloadAndWriteToDisk(Path.Combine(folderPath, x.Item1), x.Item2));
+                Directory.CreateDirectory(folderPath); // Just in case
+                toDownload.ForEach(x => this.DownloadAndWriteToDisk(Path.Combine(folderPath, x.Item1), x.Item2));
             }
         }
 
@@ -45,6 +47,11 @@ namespace YABDL.Models.Downloader
         private void DownloadAndWriteToDisk(string filepath, string url)
         {
             // todo
+
+            using (var file = File.Create(filepath))
+            {
+
+            }
         }
 
         private IEnumerable<Tuple<string, string>> GetPostsLinks(IAPIAccess access, IProvider provider, string tags)

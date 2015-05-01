@@ -2,6 +2,7 @@
 using Gtk;
 using YABDL.Models.Interfaces;
 using YABDL.Tools.Extensions;
+using YABDL.Views.ViewModels.Interfaces;
 
 namespace YABDL.Views.ViewModels
 {
@@ -50,8 +51,10 @@ namespace YABDL.Views.ViewModels
                 return this.provider;
             }
         }
-
+            
         #endregion
+
+
     }
 }
 

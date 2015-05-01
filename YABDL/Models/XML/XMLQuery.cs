@@ -23,6 +23,8 @@ namespace YABDL.Models.XML
         [XmlElement("FolderPath")]
         public override string FolderPath { get ; set; }
 
+        [XmlElement("Label")]
+        public override string Label {get; set;}
     }
 }
 

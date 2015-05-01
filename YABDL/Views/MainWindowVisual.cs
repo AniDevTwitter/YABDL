@@ -2,6 +2,8 @@
 using Gtk;
 using YABDL.Views.Filters;
 using YABDL.Views.Logs;
+using YABDL.Views.NewQuery;
+using YABDL.Views.Common;
 
 namespace YABDL.Views
 {
@@ -52,13 +54,23 @@ namespace YABDL.Views
         {
             this.toolbar = new Toolbar();
             this.toolbar.ToolbarStyle = ToolbarStyle.Icons;
-            var addButton = new ToolButton(Stock.Add); 
-            var saveButton = new ToolButton(Stock.Save);
+            var addButton = new ToolButton(AppIcons.Add, null); 
+            var saveButton = new ToolButton(AppIcons.Save, null);
             this.toolbar.Insert(addButton, this.toolbar.NItems);
             this.toolbar.Insert(saveButton, this.toolbar.NItems);
 
             saveButton.Clicked += (sender, e) => this.conf.Sync();
-            addButton.Clicked += (sender, e) => Console.WriteLine("Added something (or not)");
+            addButton.Clicked += (sender, e) => 
+                {
+                    var newQuery = new NewQueryView(this.providers, this.conf.DefaultOutputFolderPath);
+                    newQuery.NewQuery += this.OnNewQuery;
+                    newQuery.ShowAll();
+                };
+        }
+
+        private void OnNewQuery(object sender, NewQueryEventArgs ev)
+        {
+            this.conf.Queries.Add(ev.AsQuery(this.conf.Factory));
         }
     }
 }

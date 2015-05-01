@@ -18,6 +18,7 @@ namespace YABDL.Models.XML
         {
             this.Providers = new List<IProvider>();
             this.Queries = new List<IQuery>();
+            this.Factory = new XMLFactory();
         }
 
 
@@ -33,11 +34,17 @@ namespace YABDL.Models.XML
         [XmlElement("AppTitle")]
         public string AppTitle {get; set;}
 
+        [XmlElement("DefaultOutputFolderPath")]
+        public string DefaultOutputFolderPath {get; set;}
+
         [XmlArray("Providers"), XmlArrayItem(typeof(XMLProvider), ElementName = "Provider")]
         public List<IProvider> Providers {get; set;}
 
         [XmlArray("Queries"), XmlArrayItem(typeof(XMLQuery), ElementName = "Query")]
         public List<IQuery> Queries {get; set;}
+
+        [XmlIgnore]
+        public IFactory Factory { get; private set; }
 
         #endregion
 
@@ -56,75 +63,11 @@ namespace YABDL.Models.XML
             var retVal = new XMLGlobalConf()
                 {
                     AppTitle = @"Yet Another Booru DownLoader",
+                    DefaultOutputFolderPath = Path.GetFullPath(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)),
                     Queries = new List<IQuery>(),
-                    Providers = new List<IProvider>
-                        {
-                            new XMLProvider()
-                            {
-                                Id = Guid.NewGuid(),
-                                Name = @"Danbooru",
-                                Url = @"danbooru.donmai.us",
-                                Limit = @"limit",
-                                Page = @"page",
-                                Posts = @"/posts",
-                                Tags = @"tags",
-                                RawTags = @"raw",
-                                PostProvider = new XMLProviderPosts()
-                                    {
-                                        Post = @"po1st",
-                                        Id = @"id",
-                                        CreatedAt = @"created-at",
-                                        UploaderId = @"uploader-id",
-                                        Score = @"score",
-                                        Source = @"source",
-                                        MD5 = @"md5",
-                                        LastCommentBumpedAt = @"last-comment-bumped-at",
-                                        Rating = @"rating",
-                                        ImageWidth = @"image-width",
-                                        ImageHeight = @"image-height",
-                                        TagString = @"tag-string",
-                                        IsNoteLocked = @"is-note-locked",
-                                        FavCount = @"fav-count",
-                                        FileExt = @"file-ext",
-                                        LastNotedAt = @"last-noted-at",
-                                        IsRatingLocked = @"is-rating-locked",
-                                        ParentId = @"parent-id",
-                                        HasChildren = @"has-children",
-                                        ApproverId = @"approver-id",
-                                        TagCountGeneral = @"tag-count-general",
-                                        TagCountArtist = @"tag-count-artist",
-                                        TagCountCharacter = @"tag-count-character",
-                                        TagCountCopyright = @"tag-count-copyright",
-                                        FileSize = @"file-size",
-                                        IsStatusLocked = @"is-status-locked",
-                                        FavString = @"fav-string",
-                                        PoolString = @"pool-string",
-                                        UpScore = @"up-score",
-                                        DownScore = @"down-score",
-                                        IsPending = @"is-pending",
-                                        IsFlagged = @"is-flagged",
-                                        IsDeleted = @"is-deleted",
-                                        TagCount = @"tag-count",
-                                        UpdatedAt = @"updated-at",
-                                        IsBanned = @"is-banned",
-                                        PixivId = @"pixiv-id",
-                                        LastCommentedAt = @"last-commented-at",
-                                        HasActiveChildren = @"has-active-children",
-                                        BitFlags = @"bit-flags",
-                                        UploaderName = @"uploader-name",
-                                        HasLarge = @"has-large",
-                                        TagStringArtist = @"tag-string-artist",
-                                        TagStringCharacter = @"tag-string-character",
-                                        TagStringCopyright = @"tag-string-copyright",
-                                        TagStringGeneral = @"tag-string-general",
-                                        HasVisibleChildren = @"has-visible-children",
-                                        FileUrl = @"file-url",
-                                        LargeFileUrl = @"large-file-url",
-                                        PreviewFileUrl = @"preview-file-url"
-                                    }
-                            }
-                        }
+                    Providers = new List<IProvider>(),
                 };
+            retVal.Providers.Add(retVal.Factory.NewProvider(@"Danbooru", @"danbooru.donmai.us"));
             retVal.Sync();
             return retVal;
         }

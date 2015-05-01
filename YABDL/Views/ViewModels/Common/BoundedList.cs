@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using YABDL.Views.ViewModels;
 using System.Linq;
 using MoreLinq;
+using YABDL.Views.ViewModels.Interfaces;
 
 namespace YABDL.Views.ViewModels.Common
 {

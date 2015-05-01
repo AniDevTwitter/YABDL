@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YABDL.Views.ViewModels
+namespace YABDL.Views.ViewModels.Interfaces
 {
     public interface IViewModel<T>
     {

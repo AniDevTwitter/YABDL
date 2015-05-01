@@ -16,6 +16,16 @@ namespace YABDL.Models.Interfaces
         }
 
         /// <summary>
+        /// Gets or sets the default output folder path (for pictures).
+        /// </summary>
+        /// <value>The default output folder path.</value>
+        string DefaultOutputFolderPath
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets the providers this app has.
         /// </summary>
         /// <value>The providers this app has.</value>
@@ -40,6 +50,8 @@ namespace YABDL.Models.Interfaces
         /// Make this instance persists.
         /// </summary>
         void Sync();
+
+        IFactory Factory { get; }
     }
 }
 

@@ -9,6 +9,9 @@ using MoreLinq;
 
 namespace YABDL.Views.ViewModels.Common
 {
+    /// <summary>
+    /// Unidirectional binding observable collection to nodeStore
+    /// </summary>
     public class BoundedNodeStore<T> : NodeStore
         where T : ITreeNode
     {

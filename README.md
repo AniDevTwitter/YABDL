@@ -26,7 +26,7 @@ Can I fork it ? Make it mine ? Do xxx ?
  - Yes (and I'll be more than happy if so)
  - Respects the license (GPLv3)
 
-Why did you this license ?
+Why did you choose this license ?
  - It's intended to be educationnal aka help developers
  - Because I want to respect users
  - Personnal reasons

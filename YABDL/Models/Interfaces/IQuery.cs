@@ -12,6 +12,10 @@ namespace YABDL.Models.Interfaces
         /// <value>The providers.</value>
         List<Guid> Providers { get; set; }
 
+        /// <summary>
+        /// Gets or sets the folder path (where will the files be saved).
+        /// </summary>
+        /// <value>The folder path.</value>
         string FolderPath {get; set;}
 
         /// <summary>
@@ -19,6 +23,13 @@ namespace YABDL.Models.Interfaces
         /// </summary>
         /// <value>The tags this query will be bound..</value>
         string Tags { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the label of this query.
+        /// </summary>
+        /// <value>The label of this query.</value>
+        string Label { get; set;}
 
         /// <summary>
         /// Execute this query across the providers to fill files.
